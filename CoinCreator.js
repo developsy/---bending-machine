@@ -10,49 +10,49 @@ class CoinCreator {
     this.money = vendingMachineMoney;
   }
 
-  makeRandomNumber() {
-    return MissionUtils.Random.pickNumberInRange(0, 3);
-  }
-
   createCoin() {
     while (this.money !== 0) {
-      this.divideMoney();
+      const RANDOM_NUMBER = this.#makeRandomNumber();
+      this.#divideMoney(RANDOM_NUMBER);
     }
   }
 
-  divideMoney() {
+  #makeRandomNumber() {
+    return MissionUtils.Random.pickNumberInRange(1, 4) - 1;
+  }
+
+  #divideMoney(randomNumber) {
     const COIN_UNITS = [500, 100, 50, 10];
-    const RANDOM_NUMBER = this.makeRandomNumber();
-    if (this.money < COIN_UNITS[RANDOM_NUMBER]) {
+    if (this.money < COIN_UNITS[randomNumber]) {
       return;
     }
-    if (RANDOM_NUMBER === 0) this.addCoin_500;
-    if (RANDOM_NUMBER === 1) this.addCoin_100;
-    if (RANDOM_NUMBER === 2) this.addCoin_50;
-    if (RANDOM_NUMBER === 3) this.addCoin_10;
+    if (randomNumber === 0) this.#addCoin_500();
+    if (randomNumber === 1) this.#addCoin_100();
+    if (randomNumber === 2) this.#addCoin_50();
+    if (randomNumber === 3) this.#addCoin_10();
   }
 
-  addCoin_500() {
+  #addCoin_500() {
     this.#COIN_500 += parseInt(this.money / 500);
     this.money %= 500;
   }
 
-  addCoin_100() {
+  #addCoin_100() {
     this.#COIN_100 += parseInt(this.money / 100);
     this.money %= 100;
   }
 
-  addCoin_50() {
+  #addCoin_50() {
     this.#COIN_50 += parseInt(this.money / 50);
     this.money %= 50;
   }
 
-  addCoin_10() {
+  #addCoin_10() {
     this.#COIN_10 += parseInt(this.money / 10);
     this.money %= 10;
   }
 
-  get coins() {
+  returnCoins() {
     return [this.#COIN_500, this.#COIN_100, this.#COIN_50, this.#COIN_10];
   }
 }

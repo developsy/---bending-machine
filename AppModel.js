@@ -1,12 +1,16 @@
-const MissionUtils = require("@woowacourse/mission-utils");
-const { coins } = require("./CoinCreator");
+const CoinCreator = require("./CoinCreator");
 
 class AppModel {
   #productList = {};
   #lowestPrice = Infinity;
 
-  constructor(inputMoney) {
-    this.inputMoney = inputMoney;
+  makeCoins(inputMoney) {
+    this.coins = new CoinCreator(parseInt(inputMoney));
+    this.coins.createCoin();
+  }
+
+  show() {
+    console.log(this.coins.returnCoins());
   }
 
   makeProductList(userInput) {
@@ -29,3 +33,5 @@ class AppModel {
     this.inputMoney -= price;
   }
 }
+
+module.exports = AppModel;
