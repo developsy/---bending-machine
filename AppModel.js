@@ -1,4 +1,5 @@
 const CoinCreator = require("./CoinCreator");
+const { checkProductInfo } = require("./ValidationCheck");
 
 class AppModel {
   #productList = {};
@@ -12,12 +13,13 @@ class AppModel {
 
   makeProductList(userInput) {
     for (let info of userInput.split(";")) {
-      const productInfo = info.slice(1, info.length).split(",");
-      const name = productInfo[0];
-      const price = productInfo[1];
-      const count = productInfo[2];
-      if (price < this.#lowestPrice) this.#lowestPrice = price;
-      this.#productList[name] = [price, count];
+      const PRODUCT_INFO = info.slice(1, info.length).split(",");
+      const NAME = PRODUCT_INFO[0];
+      const PRICE = PRODUCT_INFO[1];
+      const COUNT = PRODUCT_INFO[2];
+      checkProductInfo(NAME, PRICE, COUNT);
+      if (PRICE < this.#lowestPrice) this.#lowestPrice = PRICE;
+      this.#productList[NAME] = [PRICE, COUNT];
     }
   }
 
