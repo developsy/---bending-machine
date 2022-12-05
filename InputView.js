@@ -7,16 +7,22 @@ const InputView = {
     });
   },
 
-  readProductInfo() {
-    MissionUtils.Console.readLine("상품명과 가격, 수량을 입력해 주세요.\n", (userInput) => {});
+  readProductInfo(handler) {
+    MissionUtils.Console.readLine("\n상품명과 가격, 수량을 입력해 주세요.\n", (userInput) => {
+      handler(userInput);
+    });
   },
 
-  readInputMoney() {
-    MissionUtils.Console.readLine("투입 금액을 입력해 주세요.\n.", (userInput) => {});
+  readInputMoney(handler) {
+    MissionUtils.Console.readLine("\n투입 금액을 입력해 주세요.\n", (userInput) => {
+      handler(userInput);
+    });
   },
 
-  readProductToBuy() {
-    MissionUtils.Console.readLine("구매할 상품명을 입력해 주세요.\n.", (userInput) => {});
+  readProductToBuy(handler) {
+    MissionUtils.Console.readLine("구매할 상품명을 입력해 주세요.\n", (userInput) => {
+      handler(userInput);
+    });
   },
 };
 

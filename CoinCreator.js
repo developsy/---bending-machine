@@ -52,8 +52,8 @@ class CoinCreator {
     this.money %= 10;
   }
 
-  returnCoins() {
-    return [this.#COIN_500, this.#COIN_100, this.#COIN_50, this.#COIN_10];
+  get showCoins() {
+    return { 500: this.#COIN_500, 100: this.#COIN_100, 50: this.#COIN_50, 10: this.#COIN_10 };
   }
 }
 
