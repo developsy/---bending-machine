@@ -1,4 +1,4 @@
-const VendingMachine = require("./Controller");
+const VendingMachine = require("./controller/Controller");
 
 class App {
   play() {

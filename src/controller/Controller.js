@@ -1,6 +1,6 @@
-const { readInputMoney, readMachineMoney, readProductInfo, readProductToBuy } = require("./inputView");
-const { printChange, printCoins, printRemainingMoney } = require("./OutputView");
-const AppModel = require("./AppModel");
+const { readInputMoney, readMachineMoney, readProductInfo, readProductToBuy } = require("../view/InputView");
+const { printChange, printCoins, printRemainingMoney } = require("../view/OutputView");
+const AppModel = require("../model/AppModel");
 
 class VendingMachine {
   #machine = new AppModel();

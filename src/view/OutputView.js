@@ -13,7 +13,7 @@ const OutputView = {
   },
 
   printChange(coins) {
-    MissionUtils.Console.print("잔돈");
+    MissionUtils.Console.print("\n잔돈");
     for (let coin of Object.entries(coins)
       .filter((x) => x[1] > 0)
       .reverse()) {

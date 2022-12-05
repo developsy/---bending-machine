@@ -1,5 +1,5 @@
 const MissionUtils = require("@woowacourse/mission-utils");
-const { checkCoinMoney, checkProductNameInput, checkInputMoney } = require("./ValidationCheck");
+const { checkCoinMoney, checkProductNameInput, checkInputMoney } = require("../model/ValidationCheck");
 
 const InputView = {
   readMachineMoney(handler) {
@@ -40,7 +40,6 @@ const InputView = {
   readProductToBuy(handler) {
     MissionUtils.Console.readLine("구매할 상품명을 입력해 주세요.\n", (userInput) => {
       try {
-        checkProductNameInput(userInput);
         handler(userInput);
       } catch (error) {
         MissionUtils.Console.print(error);

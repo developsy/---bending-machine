@@ -1,4 +1,5 @@
 const MissionUtils = require("@woowacourse/mission-utils");
+const { VALUES } = require("../utils/Constants");
 
 class CoinCreator {
   #COIN_500 = 0;
@@ -26,10 +27,10 @@ class CoinCreator {
     if (this.money < COIN_UNITS[randomNumber]) {
       return;
     }
-    if (randomNumber === 0) this.#addCoin_500();
-    if (randomNumber === 1) this.#addCoin_100();
-    if (randomNumber === 2) this.#addCoin_50();
-    if (randomNumber === 3) this.#addCoin_10();
+    if (randomNumber === VALUES.INDEX_COIN_500) this.#addCoin_500();
+    if (randomNumber === VALUES.INDEX_COIN_100) this.#addCoin_100();
+    if (randomNumber === VALUES.INDEX_COIN_50) this.#addCoin_50();
+    if (randomNumber === VALUES.INDEX_COIN_10) this.#addCoin_10();
   }
 
   #addCoin_500() {
